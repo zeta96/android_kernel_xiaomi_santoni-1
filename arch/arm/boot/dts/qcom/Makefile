@@ -224,10 +224,15 @@ dtb-$(CONFIG_ARCH_MSM8920) += msm8920-pmi8937-cdp.dtb \
 	msm8920-pmi8940-qrd-sku7.dtb \
 	msm8920-pmi8950-ext-codec-cdp.dtb
 
+# Treble support
 ifeq ($(CONFIG_MACH_XIAOMI_MSM8940),y)
-dtb-$(CONFIG_MACH_XIAOMI_SANTONI) += msm8940-pmi8950-qrd-sku7.dtb
+ifeq ($(CONFIG_MACH_XIAOMI_SANTONI_TREBLE),y)
+	dtb-$(CONFIG_MACH_XIAOMI_SANTONI_TREBLE) += msm8940-pmi8950-qrd-sku7-treble.dtb
 else
-dtb-$(CONFIG_ARCH_MSM8940) += msm8940-pmi8937-cdp.dtb \
+	dtb-$(CONFIG_MACH_XIAOMI_SANTONI) += msm8940-pmi8950-qrd-sku7.dtb
+endif
+endif
+#dtb-$(CONFIG_ARCH_MSM8940) += msm8940-pmi8937-cdp.dtb \
 	msm8940-pmi8937-mtp.dtb \
 	msm8940-pmi8950-cdp.dtb \
 	msm8940-pmi8950-mtp.dtb \
@@ -240,7 +245,7 @@ dtb-$(CONFIG_ARCH_MSM8940) += msm8940-pmi8937-cdp.dtb \
 	msm8940-pmi8940-cdp.dtb \
 	msm8940-pmi8940-rcm.dtb \
 	msm8940-pmi8940-qrd-sku7.dtb
-endif
+
 
 dtb-$(CONFIG_ARCH_MSM8953) += msm8953-sim.dtb \
 	msm8953-rumi.dtb \

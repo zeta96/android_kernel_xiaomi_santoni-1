@@ -14,4 +14,9 @@ config MACH_XIAOMI_SANTONI
 	help
 	  Support for Redmi 4/4X
 
+config MACH_XIAOMI_SANTONI_TREBLE
+	bool "Enable Santoni Treble support"
+	depends on MACH_XIAOMI_MSM8940
+	default n
+
 endmenu
